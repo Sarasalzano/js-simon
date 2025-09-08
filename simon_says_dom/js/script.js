@@ -11,9 +11,12 @@ let count = 30;
 let timeout = setInterval(() => {
     if(count === -1) {
         clearInterval(timeout);
+        listaNumeriGenerati.classList.add("d-none");
+        contoRovescia.classList.add("d-none");
     } else {
     //decremento e output
     contoRovescia.innerText = count--;
+    
     }
 }, 1000);
 
@@ -43,10 +46,8 @@ function arrayUniqueNumbers(numMin, numMax, numberElemnts) {
         }
         }      
     }  
-  
 console.log(arrayUniqueNumbers(10, 50, 5));
 
 
-//ora setto tempo dopo cui i numeri devono sparire
 
 //seleziono elemento di output
