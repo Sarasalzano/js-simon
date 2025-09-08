@@ -2,8 +2,6 @@
 const contoRovescia = document.getElementById("countdown");
 const listaNumeriGenerati = document.getElementById("numbers-list");
 const inputRisposte = document.getElementById("answers-form");
-inputRisposte.classList.remove("d-none");
-console.log(inputRisposte);
 const bottone = document.querySelector(".btn-primary");
 const messaggio = document.getElementById("message");
 
