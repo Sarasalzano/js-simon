@@ -5,6 +5,8 @@ const inputRisposte = document.getElementById("answers-form");
 const bottone = document.querySelector(".btn-primary");
 const messaggio = document.getElementById("message");
 
+
+
 //setto il countdown
 //setto variabile conteggio 
 let count = 30;
@@ -13,6 +15,7 @@ let timeout = setInterval(() => {
         clearInterval(timeout);
         listaNumeriGenerati.classList.add("d-none");
         contoRovescia.classList.add("d-none");
+        inputRisposte.classList.remove("d-none");
     } else {
     //decremento e output
     contoRovescia.innerText = count--;
@@ -21,14 +24,20 @@ let timeout = setInterval(() => {
 }, 1000);
 
 
+
+
+
+
+
+
 //seleziono una funzione di generatore casuale di numeri 
 function numRandomGen(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 console.log(numRandomGen(10, 50));
 
-
 // funzione che genera un array di tot numeri in un range
+
 function arrayUniqueNumbers(numMin, numMax, numberElemnts) {
     // mi creo un array vuoto di partenza
     const numeriArray = [];
@@ -44,10 +53,29 @@ function arrayUniqueNumbers(numMin, numMax, numberElemnts) {
         numeriArray.push(nuovoNumero); 
          listaNumeriGenerati.innerText= numeriArray;
         }
-        }      
+        }     
+        return numeriArray 
     }  
-console.log(arrayUniqueNumbers(10, 50, 5));
+    const numeriArray = arrayUniqueNumbers(10, 50, 5);
+
+    console.log(arrayUniqueNumbers(10, 50, 5));
+//gestiamo logica del bottone
+
+
+bottone.addEventListener("click", () => {
+    let vinto = false;
+    for(let i=0; i< numeriArray.length; i++){
+    if(Number(input.value) === numeriArray[i]) {
+    vinto = true;
+    }
+}
+ if (vinto === true) {
+    messaggio.innerText = "Hai indovinato!" 
+ } else {
+    messaggio.innerText = "NON Hai indovinato!"
+ }
+console.log(messaggio.innerText);
+})
 
 
 
-//seleziono elemento di output
